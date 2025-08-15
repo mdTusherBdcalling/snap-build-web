@@ -5,15 +5,14 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-   base: "/snap-build-web/",
+  base: "/snap-build-web/", // 👈 Add this line (must match your repo name)
   server: {
     host: "::",
     port: 8080,
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
