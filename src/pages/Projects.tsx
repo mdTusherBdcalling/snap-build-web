@@ -3,74 +3,73 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Calendar, Users } from "lucide-react";
+import realEstateApp from "@/assets/real-estate-app.jpg";
+import foodDeliveryApp from "@/assets/food-delivery-app.jpg";
+import restaurantApp from "@/assets/restaurant-app.jpg";
+import ticketApp from "@/assets/ticket-app.jpg";
+import serviceProviderApp from "@/assets/service-provider-app.jpg";
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform Modernization",
-      description: "Complete digital transformation of a traditional retail business, implementing a modern e-commerce platform with advanced analytics and inventory management.",
-      client: "RetailCorp Inc.",
-      duration: "6 months",
-      team: "8 developers",
-      technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Redis"],
+      title: "PropertyHub - Real Estate Platform",
+      description: "Comprehensive real estate platform with advanced property search, virtual tours, mortgage calculators, and agent management system. Features include map integration, property comparison, and automated valuation models.",
+      client: "PropertyHub Inc.",
+      duration: "8 months",
+      team: "10 developers",
+      technologies: ["React Native", "Node.js", "PostgreSQL", "AWS", "Google Maps API", "Stripe"],
       status: "Completed",
-      results: "300% increase in online sales, 50% reduction in inventory costs"
+      results: "500+ properties listed, 10,000+ active users, 40% faster property searches",
+      image: realEstateApp
     },
     {
       id: 2,
-      title: "Healthcare Management System",
-      description: "Development of a comprehensive healthcare management system for a mid-sized medical practice, including patient records, appointment scheduling, and billing integration.",
-      client: "MedCenter Group",
-      duration: "8 months",
-      team: "6 developers",
-      technologies: ["Angular", "Java", "Spring Boot", "MySQL", "Docker"],
+      title: "QuickBite - Food Delivery App",
+      description: "On-demand food delivery platform connecting customers with local restaurants. Features real-time order tracking, multiple payment options, restaurant management dashboard, and delivery driver app.",
+      client: "QuickBite Solutions",
+      duration: "6 months",
+      team: "12 developers",
+      technologies: ["Flutter", "Firebase", "Node.js", "MongoDB", "Socket.io", "PayPal API"],
       status: "Completed",
-      results: "40% improvement in patient processing time, 99.9% uptime"
+      results: "200+ partner restaurants, 25,000+ orders delivered, 4.8/5 user rating",
+      image: foodDeliveryApp
     },
     {
       id: 3,
-      title: "Financial Analytics Dashboard",
-      description: "Real-time financial analytics and reporting dashboard for a growing fintech company, providing insights into customer behavior and market trends.",
-      client: "FinTech Solutions",
-      duration: "4 months",
-      team: "5 developers",
-      technologies: ["Vue.js", "Python", "Django", "MongoDB", "Elasticsearch"],
+      title: "RestaurantPro - Management System",
+      description: "Complete restaurant management solution with table reservations, menu management, inventory tracking, staff scheduling, and analytics dashboard. Includes POS integration and customer loyalty program.",
+      client: "RestaurantPro Chain",
+      duration: "7 months",
+      team: "8 developers",
+      technologies: ["React", "Express.js", "MySQL", "Redis", "Chart.js", "Square API"],
       status: "Completed",
-      results: "Real-time data processing, 60% faster report generation"
+      results: "30% increase in table turnover, 50% reduction in inventory waste, automated reporting",
+      image: restaurantApp
     },
     {
       id: 4,
-      title: "Manufacturing IoT Solution",
-      description: "IoT-based monitoring and automation system for a manufacturing company, enabling predictive maintenance and operational efficiency improvements.",
-      client: "ManufactureTech Ltd.",
-      duration: "10 months",
-      team: "12 developers",
-      technologies: ["React", "Python", "IoT Sensors", "Azure", "Machine Learning"],
-      status: "In Progress",
-      results: "Expected 25% reduction in downtime, 15% cost savings"
+      title: "EventTicket - Booking Platform",
+      description: "Comprehensive ticket booking platform for concerts, sports events, and entertainment shows. Features dynamic pricing, seat selection, digital ticket delivery, and event organizer dashboard.",
+      client: "EventTicket Corp",
+      duration: "9 months",
+      team: "11 developers",
+      technologies: ["Vue.js", "Python", "Django", "PostgreSQL", "Celery", "Razorpay"],
+      status: "Completed",
+      results: "1M+ tickets sold, 500+ events hosted, 99.9% uptime during peak sales",
+      image: ticketApp
     },
     {
       id: 5,
-      title: "Educational Platform Migration",
-      description: "Cloud migration and modernization of an educational platform serving over 50,000 students, ensuring scalability and improved performance.",
-      client: "EduTech Academy",
-      duration: "5 months",
-      team: "7 developers",
-      technologies: ["React", "Node.js", "Kubernetes", "Google Cloud", "MongoDB"],
-      status: "Completed",
-      results: "99.95% uptime, 3x faster load times, 50% cost reduction"
-    },
-    {
-      id: 6,
-      title: "Supply Chain Optimization",
-      description: "AI-powered supply chain optimization system for a logistics company, providing real-time tracking and predictive analytics for better decision making.",
-      client: "LogiFlow Systems",
-      duration: "7 months",
-      team: "9 developers",
-      technologies: ["Angular", "Python", "TensorFlow", "PostgreSQL", "Redis"],
+      title: "ServiceConnect - Home Services App",
+      description: "Marketplace app connecting homeowners with verified service providers for cleaning, plumbing, electrical work, and maintenance. Features provider verification, booking system, and secure payments.",
+      client: "ServiceConnect Ltd",
+      duration: "10 months",
+      team: "14 developers",
+      technologies: ["React Native", "Node.js", "MongoDB", "AWS", "Twilio", "Stripe"],
       status: "In Progress",
-      results: "Expected 20% improvement in delivery times"
+      results: "1,500+ verified providers, 50,000+ services completed, 4.7/5 average rating",
+      image: serviceProviderApp
     }
   ];
 
@@ -89,56 +88,67 @@ const Projects = () => {
           
           <div className="grid gap-8">
             {projects.map((project) => (
-              <Card key={project.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-4">
-                    <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <Badge variant={project.status === 'Completed' ? 'default' : 'secondary'}>
-                      {project.status}
-                    </Badge>
+              <Card key={project.id} className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02] overflow-hidden">
+                <div className="grid lg:grid-cols-2 gap-0">
+                  <div className="aspect-video lg:aspect-auto">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <p className="text-muted-foreground">{project.description}</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div className="flex items-center space-x-2">
-                      <ExternalLink size={16} className="text-primary" />
-                      <div>
-                        <p className="text-sm font-medium">Client</p>
-                        <p className="text-sm text-muted-foreground">{project.client}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Calendar size={16} className="text-primary" />
-                      <div>
-                        <p className="text-sm font-medium">Duration</p>
-                        <p className="text-sm text-muted-foreground">{project.duration}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Users size={16} className="text-primary" />
-                      <div>
-                        <p className="text-sm font-medium">Team Size</p>
-                        <p className="text-sm text-muted-foreground">{project.team}</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium mb-2">Key Results</p>
-                      <p className="text-sm text-muted-foreground">{project.results}</p>
-                    </div>
-                  </div>
-                  
                   <div>
-                    <p className="text-sm font-medium mb-2">Technologies Used</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs">
-                          {tech}
+                    <CardHeader>
+                      <div className="flex justify-between items-start mb-4">
+                        <CardTitle className="text-xl">{project.title}</CardTitle>
+                        <Badge variant={project.status === 'Completed' ? 'default' : 'secondary'}>
+                          {project.status}
                         </Badge>
-                      ))}
-                    </div>
+                      </div>
+                      <p className="text-muted-foreground">{project.description}</p>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div className="flex items-center space-x-2">
+                          <ExternalLink size={16} className="text-primary" />
+                          <div>
+                            <p className="text-sm font-medium">Client</p>
+                            <p className="text-sm text-muted-foreground">{project.client}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Calendar size={16} className="text-primary" />
+                          <div>
+                            <p className="text-sm font-medium">Duration</p>
+                            <p className="text-sm text-muted-foreground">{project.duration}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Users size={16} className="text-primary" />
+                          <div>
+                            <p className="text-sm font-medium">Team Size</p>
+                            <p className="text-sm text-muted-foreground">{project.team}</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium mb-2">Key Results</p>
+                          <p className="text-sm text-muted-foreground">{project.results}</p>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm font-medium mb-2">Technologies Used</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech) => (
+                            <Badge key={tech} variant="outline" className="text-xs">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
                   </div>
-                </CardContent>
+                </div>
               </Card>
             ))}
           </div>
