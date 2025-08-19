@@ -3,10 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Briefcase, Code, Database, Cloud, BarChart3, Settings } from "lucide-react";
 
 const Services = () => {
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const services = [
     {
       icon: <Briefcase className="h-12 w-12 text-primary" />,
@@ -77,12 +73,8 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  variant="outline" 
-                  className="w-full group hover-glow"
-                  onClick={scrollToContact}
-                >
-                  Get Started
+                <Button variant="outline" className="w-full group">
+                  Learn More
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </CardContent>
@@ -91,13 +83,8 @@ const Services = () => {
         </div>
         
         <div className="text-center mt-16">
-          <Button 
-            size="lg" 
-            className="px-8 py-4 hover-glow"
-            onClick={scrollToContact}
-          >
+          <Button size="lg" className="px-8 py-4">
             View All Services
-            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
