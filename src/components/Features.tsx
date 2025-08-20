@@ -38,7 +38,7 @@ const Features = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl font-bold text-primary mb-4">
             Everything You Need to Succeed
           </h2>
@@ -50,15 +50,21 @@ const Features = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="border-border hover:shadow-lg transition-shadow">
+            <Card 
+              key={index} 
+              className="border-border hover-lift shadow-card animate-slide-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <CardHeader>
                 <div className="flex items-center space-x-4">
-                  {feature.icon}
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    {feature.icon}
+                  </div>
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-text-light">{feature.description}</p>
+                <p className="text-text-light leading-relaxed">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
